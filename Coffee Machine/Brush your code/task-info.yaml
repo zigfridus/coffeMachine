@@ -1,0 +1,148 @@
+type: edu
+custom_name: stage6
+files:
+- name: test/CoffeeMachineTest.java
+  visible: false
+  learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: |
+    package machine;
+
+    import java.util.Scanner;
+
+    public class CoffeeMachine {
+
+        static int money = 550;
+
+        static int water = 400;
+
+        static int milk = 540;
+
+        static int coffeeBeans = 120;
+
+        static int cups = 9;
+
+        static boolean isEnoughWater(int value) {
+            if (water < value) {
+                System.out.println("Sorry, not enough water!");
+                return false;
+            }
+            return true;
+        }
+
+        static boolean isEnoughCoffeeBeans(int value) {
+            if (coffeeBeans < value) {
+                System.out.println("Sorry, not enough coffee beans!");
+                return false;
+            }
+            return true;
+        }
+
+        static boolean isEnoughMilk(int value) {
+            if (milk < value) {
+                System.out.println("Sorry, not enough milk!");
+                return false;
+            }
+            return true;
+        }
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            boolean isMachineOn = true;
+            while (isMachineOn) {
+
+                System.out.print("Write action (buy, fill, take, remaining, exit): ");
+                String action = scanner.next();
+
+                switch (action) {
+                    case "buy": {
+                        System.out.print("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ");
+                        String coffeType = scanner.next();
+                        switch (coffeType) {
+                            case "1": {
+                                int recWater = 250;
+                                int recCoffeeBeans = 16;
+                                if (isEnoughWater(recWater) && isEnoughCoffeeBeans(recCoffeeBeans) && cups >= 1) {
+                                    water -= recWater;
+                                    coffeeBeans -= recCoffeeBeans;
+                                    cups--;
+                                    money += 4;
+                                    System.out.println("I have enough resources, making you a coffee!");
+                                }
+                                break;
+                            }
+                            case "2": {
+                                int recWater = 350;
+                                int recCoffeeBeans = 20;
+                                int recMilk = 75;
+                                if (isEnoughWater(recWater) && isEnoughCoffeeBeans(recCoffeeBeans) && isEnoughMilk(recMilk) && cups >= 1) {
+                                    water -= recWater;
+                                    coffeeBeans -= recCoffeeBeans;
+                                    milk -= recMilk;
+                                    cups--;
+                                    money += 7;
+                                    System.out.println("I have enough resources, making you a coffee!");
+                                }
+                                break;
+                            }
+                            case "3": {
+                                int recWater = 200;
+                                int recCoffeeBeans = 12;
+                                int recMilk = 100;
+                                if (isEnoughWater(recWater) && isEnoughCoffeeBeans(recCoffeeBeans) && isEnoughMilk(recMilk) && cups >= 1) {
+                                    water -= recWater;
+                                    coffeeBeans -= recCoffeeBeans;
+                                    milk -= recMilk;
+                                    cups--;
+                                    money += 6;
+                                    System.out.println("I have enough resources, making you a coffee!");
+                                }
+                                break;
+                            }
+                            case "back":
+                            default:
+                                break;
+                        }
+                        break;
+                    }
+                    case "fill": {
+                        System.out.print("Write how many ml of water do you want to add: ");
+                        water += scanner.nextInt();
+                        System.out.print("Write how many ml of milk do you want to add: ");
+                        milk += scanner.nextInt();
+                        System.out.print("Write how many grams of coffee beans do you want to add: ");
+                        coffeeBeans += scanner.nextInt();
+                        System.out.print("Write how many disposable cups of coffee do you want to add: ");
+                        cups += scanner.nextInt();
+                        break;
+                    }
+                    case "take": {
+                        System.out.println("I gave you $" + money);
+                        money = 0;
+                        break;
+                    }
+                    case "remaining": {
+                        System.out.println("The coffee machine has:");
+                        System.out.println(water + " of water");
+                        System.out.println(milk + " of milk");
+                        System.out.println(coffeeBeans + " of coffee beans");
+                        System.out.println(cups + " of disposable cups");
+                        System.out.println("$" + money + " of money");
+                        break;
+                    }
+                    case "exit": {
+                        isMachineOn = false;
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/33/stages/180/implement
+status: Unchecked
+record: -1

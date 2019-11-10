@@ -1,0 +1,40 @@
+type: edu
+custom_name: stage5
+files:
+- name: test/CoffeeMachineTest.java
+  visible: false
+  learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: "package machine;\n\nimport java.util.Scanner;\n\npublic class CoffeeMachine\
+    \ {\n\tstatic int money = 550;\n\tstatic int water = 1200;\n\tstatic int milk\
+    \ = 540;\n\tstatic int coffeeBeans = 120;\n\tstatic int cups = 9;\n\n\tprivate\
+    \ static void statusPrint(){\n\t\tSystem.out.println(\"The coffee machine has:\"\
+    );\n\t\tSystem.out.println(water + \" of water\");\n\t\tSystem.out.println(milk\
+    \ + \" of milk\");\n\t\tSystem.out.println(coffeeBeans + \" of coffee beans\"\
+    );\n\t\tSystem.out.println(cups + \" of disposable cups\");\n\t\tSystem.out.println(money\
+    \ + \" of money\");\n\t}\n\n\tpublic static void main(String[] args) {\n\t\tScanner\
+    \ scanner = new Scanner(System.in);\n\n\t\tstatusPrint();\n\n\t\tSystem.out.print(\"\
+    Write action (buy, fill, take): \");\n\t\tString action = scanner.next();\n\n\t\
+    \tswitch (action) {\n\t\t\tcase \"buy\": {\n\t\t\t\tSystem.out.print(\"What do\
+    \ you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: \");\n\t\t\t\tint\
+    \ coffeType = scanner.nextInt();\n\t\t\t\tswitch (coffeType) {\n\t\t\t\t\tcase\
+    \ 1 : {\n\t\t\t\t\t\twater -= 250;\n\t\t\t\t\t\tcoffeeBeans -= 16;\n\t\t\t\t\t\
+    \tmoney += 4;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t\tcase 2 : {\n\t\t\t\t\
+    \t\twater -= 350;\n\t\t\t\t\t\tmilk -= 75;\n\t\t\t\t\t\tcoffeeBeans -= 20;\n\t\
+    \t\t\t\t\tmoney += 7;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t\tcase 3 : {\n\
+    \t\t\t\t\t\twater -= 200;\n\t\t\t\t\t\tmilk -= 100;\n\t\t\t\t\t\tcoffeeBeans -=\
+    \ 12;\n\t\t\t\t\t\tmoney += 6;\n\t\t\t\t\t\tbreak;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\
+    \t\t\tcups--;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tcase \"fill\": {\n\t\t\t\tSystem.out.print(\"\
+    Write how many ml of water do you want to add: \");\n\t\t\t\twater += scanner.nextInt();\n\
+    \t\t\t\tSystem.out.print(\"Write how many ml of milk do you want to add: \");\n\
+    \t\t\t\tmilk += scanner.nextInt();\n\t\t\t\tSystem.out.print(\"Write how many\
+    \ grams of coffee beans do you want to add: \");\n\t\t\t\tcoffeeBeans += scanner.nextInt();\n\
+    \t\t\t\tSystem.out.print(\"Write how many disposable cups of coffee do you want\
+    \ to add: \");\n\t\t\t\tcups += scanner.nextInt();\n\t\t\t\tbreak;\n\t\t\t}\n\t\
+    \t\tcase \"take\": {\n\t\t\t\tSystem.out.print(\"I gave you $\" + money);\n\t\t\
+    \t\tmoney = 0;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\n\t\tstatusPrint();\n\t}\n}\n"
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/33/stages/179/implement
+status: Solved
+record: 1

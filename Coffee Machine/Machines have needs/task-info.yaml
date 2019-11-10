@@ -1,0 +1,39 @@
+type: edu
+custom_name: stage2
+files:
+- name: test/CoffeeMachineTest.java
+  visible: false
+  learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: |
+    package machine;
+
+    public class CoffeeMachine {
+        public static void main(String[] args) {
+            System.out.println("Starting to make a coffee");
+            System.out.println("Grinding coffee beans");
+            System.out.println("Boiling water");
+            System.out.println("Mixing boiled water with crushed coffee beans");
+            System.out.println("Pouring coffee into the cup");
+            System.out.println("Pouring some milk into the cup");
+            System.out.println("Coffee is ready!");
+
+            /* a strange /* // /* single-line comment */
+
+
+            /*
+        another comment
+    */*/
+
+            /*/*
+        yet another comment
+    */
+
+
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/33/stages/176/implement
+status: Solved
+record: 2

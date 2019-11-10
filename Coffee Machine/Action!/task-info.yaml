@@ -1,0 +1,33 @@
+type: edu
+custom_name: stage4
+files:
+- name: test/CoffeeMachineTest.java
+  visible: false
+  learner_created: false
+- name: src/machine/CoffeeMachine.java
+  visible: true
+  text: "package machine;\n\nimport java.util.Scanner;\n\npublic class CoffeeMachine\
+    \ {\n    public static void main(String[] args) {\n       \tScanner scanner =\
+    \ new Scanner(System.in);\n\n\t\tfinal int ONE_CUP_WATER = 200;\n\t\tfinal int\
+    \ ONE_CUP_MILK = 50;\n\t\tfinal int ONE_CUP_BEANS = 15;\n\n\t\tSystem.out.print(\"\
+    Write how many ml of water the coffee machine has: \");\n\t\tint water = scanner.nextInt();\n\
+    \t\tSystem.out.print(\"Write how many ml of milk the coffee machine has: \");\n\
+    \t\tint milk = scanner.nextInt();\n\t\tSystem.out.print(\"Write how many grams\
+    \ of coffee beans the coffee machine has: \");\n\t\tint beans = scanner.nextInt();\n\
+    \t\tSystem.out.print(\"Write how many cups of coffee you will need: \");\n\t\t\
+    int necessaryCupCount = scanner.nextInt();\n\n\t\tint restWaterForCup = water\
+    \ / ONE_CUP_WATER;\n\t\tint restMilkForCup = milk / ONE_CUP_MILK;\n\t\tint restBeansForCup\
+    \ = beans / ONE_CUP_BEANS;\n\n\t\tint minCupCount = restWaterForCup;\n\t\tif (minCupCount\
+    \ > restMilkForCup) {\n\t\t\tminCupCount = restMilkForCup;\n\t\t}\n\t\tif (minCupCount\
+    \ > restBeansForCup) {\n\t\t\tminCupCount = restBeansForCup;\n\t\t}\n\n\t\tif\
+    \ (minCupCount == necessaryCupCount) {\n\t\t\tSystem.out.println(\"Yes, I can\
+    \ make that amount of coffee\");\n\t\t} else if (minCupCount < necessaryCupCount)\
+    \ {\n\t\t\tSystem.out.println(\"No, I can make only \" + minCupCount + \" cup(s)\
+    \ of coffee\");\n\t\t} else if (minCupCount > necessaryCupCount) {\n\t\t\tint\
+    \ lastCups =  minCupCount - necessaryCupCount;\n\t\t\tSystem.out.println(\"Yes,\
+    \ I can make that amount of coffee (and even \" + lastCups + \" more than that)\"\
+    );\n\t\t}\n    }\n}\n"
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/33/stages/178/implement
+status: Unchecked
+record: 5
